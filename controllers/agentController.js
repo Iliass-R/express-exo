@@ -1,4 +1,4 @@
-const Agent = require('../models/agent');
+const Agent = require('../models/Agent');
 const bcrypt = require('bcrypt');
 const jwtUtils = require('../utils/jwt.utils');
 
