@@ -1,4 +1,3 @@
-const { application } = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -6,11 +5,6 @@ const app = express();
 require("dotenv").config();
 
 const url = `mongodb+srv://${process.env.MONGO_NAME}:${process.env.MONGO_PW}@interventionapi.3qz4z7d.mongodb.net/?retryWrites=true&w=majority`;
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
-});
 
 mongoose
     .set("strictQuery", false)
@@ -35,3 +29,5 @@ app.use((req, res, next) => {
 
 app.use("/api/agent", require("./routes/agent.js"));
 app.use("/api/intervention", require("./routes/intervention.js"));
+
+module.exports = app;
